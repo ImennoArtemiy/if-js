@@ -1,4 +1,7 @@
 /* eslint-disable */
+
+//LESSON-2
+
 // Working with variables
 let user = 'John Doe';
 console.log(user);
@@ -80,3 +83,90 @@ function fizzBuzz(n) {
 }
 
 fizzBuzz(30);
+
+// LESSON-3
+
+// Palindrome
+function palindrome(word) {
+  word = word.toLowerCase();
+  let reverseWord = '';
+  for (let i = word.length - 1; i >= 0; i--) {
+    reverseWord += word[i];
+    word[i].toLowerCase();
+  }
+  return word === reverseWord;
+}
+
+console.log(palindrome('ШалАш'));
+console.log(palindrome('гашЫш'));
+
+// MIN first way
+function minNumber(a, b) {
+  if (a < b) {
+    return a;
+  }
+  if (b < a) {
+    return b;
+  }
+  return (`"${a}" и "${b}" равны между собой`);
+}
+
+// MIN second way
+function minNumber1 (a, b) {
+  return (a < b) ? a : b;
+}
+
+console.log(minNumber(4,59));
+console.log(minNumber(-20,-40));
+console.log(minNumber(5,5));
+
+// MAX first way
+function maxNumber(a, y) {
+  if (a > y) {
+    return a;
+  }
+  if (y > a) {
+    return y;
+  }
+  return (`"${a}" и "${y}" равны между собой`);
+}
+
+//MAX second way
+function maxNumber1 (a, y) {
+  return (a > y) ? a : y;
+}
+
+console.log(maxNumber(4,59));
+console.log(maxNumber(-20,-40));
+console.log(maxNumber(13,13));
+
+// Replacing array elements
+
+
+function getRandomArray(min, max) {
+  min = 0;
+  max = 100;
+  let randomArray = [];
+
+  for (let i = 0; i < 10; i++) {
+    let randomNums = Math.floor(Math.random() * (max - min) + min);
+    randomArray.push(randomNums);
+  }
+  return(randomArray);
+}
+
+function strZero (arr) {
+  let newArr = [];
+  arr = getRandomArray();
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 10 === 0 || arr[i] === 0) {
+      arr[i] = arr[i].toString().replace('0', 'zero');
+      console.log(arr[i]);
+      newArr.push(arr[i]);
+    } else {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
+}
