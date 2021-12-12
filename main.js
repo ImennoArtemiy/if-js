@@ -2,6 +2,10 @@
 
 //LESSON-2
 
+console.log('');
+console.log('LESSON-2');
+console.log('');
+
 // Working with variables
 let user = 'John Doe';
 console.log(user);
@@ -85,6 +89,10 @@ function fizzBuzz(n) {
 fizzBuzz(30);
 
 // LESSON-3
+
+console.log('');
+console.log('LESSON-3');
+console.log('');
 
 // Palindrome
 function palindrome(word) {
@@ -170,3 +178,38 @@ function strZero (arr) {
   }
   return newArr;
 }
+
+// LESSON-4
+console.log('');
+console.log('LESSON-4');
+console.log('');
+
+// Currying
+function sumCyr (a) {
+  return function (b) {
+    return a + b;
+  }
+}
+console.log(sumCyr(4)(3));
+
+// Color the paragraphs on click (click event)
+const arrColors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
+
+let textFirst = document.getElementById("text1");
+let textMiddle = document.getElementById("text2");
+let textLast = document.getElementById("text3");
+
+function changeColor () {
+  let color = 0;
+  return function () {
+    this.style.color = arrColors[color];
+    color++;
+    if (color === arrColors.length) {
+      color = 0;
+    }
+  }
+}
+
+textFirst.addEventListener('click', changeColor());
+textMiddle.addEventListener('click', changeColor());
+textLast.addEventListener('click', changeColor());

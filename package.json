@@ -3,7 +3,8 @@
     "eslint": "^8.3.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.3",
-    "husky": "^7.0.4"
+    "husky": "^7.0.4",
+    "jest": "^27.4.4"
   },
   "name": "if",
   "description": "",
@@ -95,7 +96,7 @@
     "yallist": "^4.0.0"
   },
   "scripts": {
-    "test": "npx eslint main.js",
+    "test": "jest",
     "prepare": "husky install"
   },
   "repository": {
