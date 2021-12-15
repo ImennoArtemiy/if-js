@@ -195,21 +195,78 @@ console.log(sumCyr(4)(3));
 // Color the paragraphs on click (click event)
 const arrColors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
 
-let textFirst = document.getElementById("text1");
-let textMiddle = document.getElementById("text2");
-let textLast = document.getElementById("text3");
 
-function changeColor () {
-  let color = 0;
-  return function () {
-    this.style.color = arrColors[color];
-    color++;
-    if (color === arrColors.length) {
-      color = 0;
-    }
+// LESSON-5
+
+console.log('');
+console.log('LESSON-5');
+console.log('');
+
+// Formatting date
+
+function dateFormatting(date) {
+  const dateReg = /^\d{4}-\d{2}-\d{2}$/;
+  if (dateReg.test(date)) {
+    date = date.split('-')
+      .reverse()
+      .join('.');
+    return date;
+  } else {
+    return 'enter correct date format';
   }
 }
 
-textFirst.addEventListener('click', changeColor());
-textMiddle.addEventListener('click', changeColor());
-textLast.addEventListener('click', changeColor());
+// Search object
+
+const data = [
+  {
+    country: 'Russia',
+    city: 'Saint Petersburg',
+    hotel: 'Hotel Leopold',
+  },
+  {
+    country: 'Spain',
+    city: 'Santa Cruz de Tenerife',
+    hotel: 'Apartment Sunshine',
+  },
+  {
+    country: 'Slowakia',
+    city: 'Vysokie Tatry',
+    hotel: 'Villa Kunerad',
+  },
+  {
+    country: 'Germany',
+    city: 'Berlin',
+    hotel: 'Hostel Friendship',
+  },
+  {
+    country: 'Indonesia',
+    city: 'Bali',
+    hotel: 'Ubud Bali Resort&SPA',
+  },
+  {
+    country: 'Netherlands',
+    city: 'Rotterdam',
+    hotel: 'King Kong Hostel',
+  },
+  {
+    country: 'Marocco',
+    city: 'Ourika',
+    hotel: 'Rokoko Hotel',
+  },
+  {
+    country: 'Germany',
+    city: 'Berlin',
+    hotel: 'Hotel Rehberge Berlin Mitte',
+  },
+];
+
+function search (keyword) {
+  for (let i = 0; i < data.length; i++) {
+    if (Object.values(data[i]).includes(keyword)) {
+      console.log(Object.values(data[i]));
+    }
+  }
+  console.log('');
+  return `↑ search results ↑`;
+}
