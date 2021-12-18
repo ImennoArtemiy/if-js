@@ -208,7 +208,7 @@ function changeColor() {
     if (color === arrColors.length) {
       color = 0;
     }
-  }
+  };
 }
 
 textFirst.addEventListener('click', changeColor());
@@ -217,9 +217,9 @@ textLast.addEventListener('click', changeColor());
 
 // LESSON-5
 
-    console.log('');
-    console.log('LESSON-5');
-    console.log('');
+console.log('');
+console.log('LESSON-5');
+console.log('');
 
 // Formatting date
 
@@ -281,12 +281,19 @@ const data = [
 ];
 
 function search(keyword) {
+  keyword = keyword.toLowerCase();
   for (let i = 0; i < data.length; i++) {
+    let result = [];
     if (Object.values(data[i])
+      .toString()
+      .toLowerCase()
       .includes(keyword)) {
-      console.log(Object.values(data[i]));
+      result.push(Object.values(data[i])
+        .toString());
+      console.log(result);
     }
   }
+
   console.log('');
   return `↑ search results ↑`;
 }
