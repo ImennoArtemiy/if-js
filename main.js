@@ -45,7 +45,7 @@ const arr2 = [2, 5, 8, 15, 0, 6, 20, 3];
 for (let i = 0; i < arr2.length; i++) {
   let number = arr2[i];
   if (number > 5 && number < 10) {
-    console.log ('число из массива '+ '"' + number + '"' + ' больше 5, но меньше 10');
+    console.log('число из массива ' + '"' + number + '"' + ' больше 5, но меньше 10');
   }
 }
 
@@ -63,7 +63,7 @@ for (let i = 0; i < arr3.length; i++) {
 // additional task 1
 let sumMultiply = 0;
 for (let i = 1; i <= 999; i++) {
-  if (i % 3 === 0 || i % 5 === 0){
+  if (i % 3 === 0 || i % 5 === 0) {
     sumMultiply += i;
   }
 }
@@ -120,13 +120,13 @@ function minNumber(a, b) {
 }
 
 // MIN second way
-function minNumber1 (a, b) {
+function minNumber1(a, b) {
   return (a < b) ? a : b;
 }
 
-console.log(minNumber(4,59));
-console.log(minNumber(-20,-40));
-console.log(minNumber(5,5));
+console.log(minNumber(4, 59));
+console.log(minNumber(-20, -40));
+console.log(minNumber(5, 5));
 
 // MAX first way
 function maxNumber(a, y) {
@@ -140,16 +140,15 @@ function maxNumber(a, y) {
 }
 
 //MAX second way
-function maxNumber1 (a, y) {
+function maxNumber1(a, y) {
   return (a > y) ? a : y;
 }
 
-console.log(maxNumber(4,59));
-console.log(maxNumber(-20,-40));
-console.log(maxNumber(13,13));
+console.log(maxNumber(4, 59));
+console.log(maxNumber(-20, -40));
+console.log(maxNumber(13, 13));
 
 // Replacing array elements
-
 
 function getRandomArray(min, max) {
   min = 0;
@@ -160,16 +159,17 @@ function getRandomArray(min, max) {
     let randomNums = Math.floor(Math.random() * (max - min) + min);
     randomArray.push(randomNums);
   }
-  return(randomArray);
+  return (randomArray);
 }
 
-function strZero (arr) {
+function strZero(arr) {
   let newArr = [];
   arr = getRandomArray();
 
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] % 10 === 0 || arr[i] === 0) {
-      arr[i] = arr[i].toString().replace('0', 'zero');
+      arr[i] = arr[i].toString()
+        .replace('0', 'zero');
       console.log(arr[i]);
       newArr.push(arr[i]);
     } else {
@@ -185,21 +185,22 @@ console.log('LESSON-4');
 console.log('');
 
 // Currying
-function sumCyr (a) {
+function sumCyr(a) {
   return function (b) {
     return a + b;
-  }
+  };
 }
+
 console.log(sumCyr(4)(3));
 
 // Color the paragraphs on click (click event)
 const arrColors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
 
-let textFirst = document.getElementById("text1");
-let textMiddle = document.getElementById("text2");
-let textLast = document.getElementById("text3");
+let textFirst = document.getElementById('text1');
+let textMiddle = document.getElementById('text2');
+let textLast = document.getElementById('text3');
 
-function changeColor () {
+function changeColor() {
   let color = 0;
   return function () {
     this.style.color = arrColors[color];
@@ -207,9 +208,92 @@ function changeColor () {
     if (color === arrColors.length) {
       color = 0;
     }
-  }
+  };
 }
 
 textFirst.addEventListener('click', changeColor());
 textMiddle.addEventListener('click', changeColor());
 textLast.addEventListener('click', changeColor());
+
+// LESSON-5
+
+console.log('');
+console.log('LESSON-5');
+console.log('');
+
+// Formatting date
+
+function dateFormatting(date) {
+  const dateReg = /^\d{4}-\d{2}-\d{2}$/;
+  if (dateReg.test(date)) {
+    date = date.split('-')
+      .reverse()
+      .join('.');
+    return date;
+  } else {
+    return 'enter correct date format';
+  }
+}
+
+// Search object
+
+const data = [
+  {
+    country: 'Russia',
+    city: 'Saint Petersburg',
+    hotel: 'Hotel Leopold',
+  },
+  {
+    country: 'Spain',
+    city: 'Santa Cruz de Tenerife',
+    hotel: 'Apartment Sunshine',
+  },
+  {
+    country: 'Slowakia',
+    city: 'Vysokie Tatry',
+    hotel: 'Villa Kunerad',
+  },
+  {
+    country: 'Germany',
+    city: 'Berlin',
+    hotel: 'Hostel Friendship',
+  },
+  {
+    country: 'Indonesia',
+    city: 'Bali',
+    hotel: 'Ubud Bali Resort&SPA',
+  },
+  {
+    country: 'Netherlands',
+    city: 'Rotterdam',
+    hotel: 'King Kong Hostel',
+  },
+  {
+    country: 'Marocco',
+    city: 'Ourika',
+    hotel: 'Rokoko Hotel',
+  },
+  {
+    country: 'Germany',
+    city: 'Berlin',
+    hotel: 'Hotel Rehberge Berlin Mitte',
+  },
+];
+
+function search(keyword) {
+  keyword = keyword.toLowerCase();
+  for (let i = 0; i < data.length; i++) {
+    let result = [];
+    if (Object.values(data[i])
+      .toString()
+      .toLowerCase()
+      .includes(keyword)) {
+      result.push(Object.values(data[i])
+        .toString());
+      console.log(result);
+    }
+  }
+
+  console.log('');
+  return `↑ search results ↑`;
+}
