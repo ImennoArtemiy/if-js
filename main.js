@@ -508,3 +508,94 @@ function sortCityForCountry (array) {
 }
 
 console.log(sortCityForCountry(hotels));
+
+
+//LESSON-7
+
+console.log('');
+console.log('LESSON-7');
+console.log('');
+
+// Object comparison
+
+const obj1 = {
+  a: 'a',
+  b: {
+    a: 'a',
+    b: 'b',
+    c: {
+      a: 1,
+    },
+  },
+};
+const obj2 = {
+  b: {
+    c: {
+      a: 1,
+    },
+    b: 'b',
+    a: 'a',
+  },
+  a: 'a',
+};
+const obj3 = {
+  a: {
+    c: {
+      a: 'a',
+    },
+    b: 'b',
+    a: 'a',
+  },
+  b: 'b',
+};
+
+function deepEqual (object1, object2) {
+  const iAmObject = typeof object1 === 'object' && typeof object2 === 'object';
+
+  if (iAmObject) {
+
+    for (let prop in object1) {
+      let objKeyLength = Object.keys(object1).length
+      let objKey2Length = Object.keys(object2).length
+      if (objKeyLength !== objKey2Length) return false;
+      if (!object2.hasOwnProperty(prop)) return false;
+      if (typeof object1[prop] === 'object' && typeof object2[prop] === 'object') {
+        const result = deepEqual(object1[prop], object2[prop]);
+        if (!result) return false;
+      } else {
+        if (object1[prop] !== object2[prop]) return false;
+      }
+    }
+    return true;
+  } else {
+    return object1 === object2;
+  }
+}
+
+console.log(deepEqual(obj1, obj2))
+console.log(deepEqual(obj1, obj3));
+console.log(deepEqual(obj3, obj2));
+
+
+// Calendar month
+
+function getCalendarMonth(daysInMonth, daysInWeek, dayOfWeek) {
+
+  let arrayWeek = [];
+  let weekDay = 0;
+  const resultMonth = [];
+
+  if (dayOfWeek) {
+    for (let i = 0; i < dayOfWeek; i++) {
+      arrayWeek.unshift(daysInMonth - i)
+    }
+    while (arrayWeek.length < daysInWeek) {
+      arrayWeek.push(++weekDay);
+    }
+    resultMonth.push(arrayWeek);
+  }
+
+  return resultMonth;
+}
+
+console.log(getCalendarMonth(30, 7, 4));
