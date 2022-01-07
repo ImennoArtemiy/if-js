@@ -606,7 +606,7 @@ console.log('');
 console.log('LESSON-7');
 console.log('');
 
-const currentYear = 2021;
+const currentYear = new Date().getFullYear();
 
 class User {
   constructor(firstName, lastName) {
@@ -640,9 +640,9 @@ class Students {
   getInfo(students) {
     const result = [];
     instancesStudents.sort((a, b) => a.course > b.course ? 1 : -1);
-    for (let i = 0; i < instancesStudents.length; i++) {
-      result.push(`${instancesStudents[i].fullName} - ${instancesStudents[i].courseName}, ${instancesStudents[i].course}`);
-    }
+    instancesStudents.map(i => {
+      result.push(`${i.fullName} - ${i.courseName}, ${i.course}`);
+    })
     return result;
   }
 }
