@@ -599,3 +599,82 @@ function getCalendarMonth(daysInMonth, daysInWeek, dayOfWeek) {
 }
 
 console.log(getCalendarMonth(30, 7, 4));
+
+//LESSON-7
+
+console.log('');
+console.log('LESSON-7');
+console.log('');
+
+const currentYear = new Date().getFullYear();
+
+class User {
+  constructor(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  get fullName () {
+    return `${this.firstName} ${this.lastName}`;
+  }
+}
+
+class Student extends User {
+  constructor({firstName, lastName, admissionYear, courseName})
+  {
+    super(firstName, lastName);
+    this.admissionYear = admissionYear;
+    this.courseName = courseName;
+  }
+
+  get course () {
+    return `${currentYear - this.admissionYear} курс`;
+  }
+}
+
+class Students {
+  constructor(students) {
+    this.students = students
+  }
+
+  getInfo(students) {
+    const result = [];
+    instancesStudents.sort((a, b) => a.course > b.course ? 1 : -1);
+    instancesStudents.map(i => {
+      result.push(`${i.fullName} - ${i.courseName}, ${i.course}`);
+    })
+    return result;
+  }
+}
+
+const studentsData = [
+  {
+    firstName: 'Василий',
+    lastName: 'Петров',
+    admissionYear: 2019,
+    courseName: 'Java',
+  },
+  {
+    firstName: 'Иван',
+    lastName: 'Иванов',
+    admissionYear: 2018,
+    courseName: 'JavaScript',
+  },
+  {
+    firstName: 'Александр',
+    lastName: 'Федоров',
+    admissionYear: 2017,
+    courseName: 'Python',
+  },
+  {
+    firstName: 'Николай',
+    lastName: 'Петров',
+    admissionYear: 2019,
+    courseName: 'Android',
+  }
+];
+
+const instancesStudents = studentsData.map(student => new Student(student));
+const students = new Students(instancesStudents);
+
+console.log(students.getInfo());
