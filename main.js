@@ -194,26 +194,26 @@ function sumCyr(a) {
 console.log(sumCyr(4)(3));
 
 // Color the paragraphs on click (click event)
-const arrColors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
-
-let textFirst = document.getElementById('text1');
-let textMiddle = document.getElementById('text2');
-let textLast = document.getElementById('text3');
-
-function changeColor() {
-  let color = 0;
-  return function () {
-    this.style.color = arrColors[color];
-    color++;
-    if (color === arrColors.length) {
-      color = 0;
-    }
-  };
-}
-
-textFirst.addEventListener('click', changeColor());
-textMiddle.addEventListener('click', changeColor());
-textLast.addEventListener('click', changeColor());
+// const arrColors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
+//
+// let textFirst = document.getElementById('text1');
+// let textMiddle = document.getElementById('text2');
+// let textLast = document.getElementById('text3');
+//
+// function changeColor() {
+//   let color = 0;
+//   return function () {
+//     this.style.color = arrColors[color];
+//     color++;
+//     if (color === arrColors.length) {
+//       color = 0;
+//     }
+//   };
+// }
+//
+// textFirst.addEventListener('click', changeColor());
+// textMiddle.addEventListener('click', changeColor());
+// textLast.addEventListener('click', changeColor());
 
 // LESSON-5
 
@@ -678,3 +678,36 @@ const instancesStudents = studentsData.map(student => new Student(student));
 const students = new Students(instancesStudents);
 
 console.log(students.getInfo());
+
+//LESSON-9
+
+const colors = {
+  data: ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'],
+  [Symbol.iterator] () {
+    const colorsArr = this.data;
+    return {
+      next(index) {
+        return {
+          value: colorsArr[index],
+          done: index === colorsArr.length,
+        }
+      }
+    }
+  }
+}
+
+function colorReplacement() {
+  let i = 0;
+  let iterator = colors[Symbol.iterator]();
+  return function () {
+    this.style.color = iterator.next(i).value;
+    i++;
+    if (iterator.next(i).done) {
+      i = 0;
+    }
+  }
+}
+
+document.getElementById("text1").addEventListener("click", colorReplacement());
+document.getElementById("text2").addEventListener("click", colorReplacement());
+document.getElementById("text3").addEventListener("click", colorReplacement());
