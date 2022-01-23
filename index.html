@@ -4,14 +4,388 @@
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
-    <title>lesson-8</title>
+    <title>Advantages Section</title>
+    <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
-    <p id="text1">Text 1</p>
-    <p id="text2">Text 2</p>
-    <p id="text3">Text 3</p>
+    <header class="header">
+        <div class="header__blackout-container">
+            <div class="header-top__container">
+                <div class="header__body">
+                    <div class="header__logo">
+                        <a href="#">
+                            <svg class="triphouse-logo">
+                                <use href="./img/sprite.svg#triphouse-logo"></use>
+                            </svg>
+                        </a>
+                    </div>
+                    <nav class="header__menu menu">
+                        <div class="menu__text">
+                            <a href="#" class="menu__link">Stays</a>
+                            <a href="#" class="menu__link">Attractions</a>
+                        </div>
+                        <div class="menu__icons">
+                            <a href="#">
+                                <svg class="theme-icon">
+                                    <use href="./img/sprite.svg#theme-icon"></use>
+                                </svg>
+                            </a>
+                            <a href="#">
+                                <svg class="account-icon">
+                                    <use href="./img/sprite.svg#account-icon"></use>
+                                </svg>
+                            </a>
+                            <svg class="sandwich-icon">
+                                <use href="./img/sprite.svg#menu-icon"></use>
+                            </svg>
+                        </div>
+                    </nav>
+                </div>
+                <h1 class="top__title">Discover stays <br> to live, work or just relax</h1>
+                <form action="" class="top__form remove-sm">
+                    <div class="city-field">
+                        <input id="city-input" class="city-input" type="text" required>
+                        <label class="city-label" for="city-input">Your destination or hotel name</label>
+                    </div>
+                    <div class="border_container">
+                        <div class="button-container">
+                            <div class="calendar" tabindex="0">Check-in — Check-out</div>
+                            <div class="criterias" tabindex="0">2 Adults — 0 Children — 1 Room</div>
+                            <button type="submit" class="search-button">Search</button>
+                        </div>
+                    </div>
+                </form>
+                <form action="" class="top__form-sm">
+                    <div class="city-field-sm">
+                        <svg class="search-icon">
+                            <use href="./img/sprite.svg#search-icon"></use>
+                        </svg>
+                        <input class="city-input-sm" type="text" placeholder="Your destination or hotel name">
+                    </div>
+                    <div class="calendar-sm">
+                        <div class="calendar-items-sm">
+                            <label class="form-label-sm">Check-in date</label>
+                            <input class="form-input-sm" type="text">
+                        </div>
+                        <div class="calendar-items-sm">
+                            <label class="form-label-sm">check-out date</label>
+                            <input class="form-input-sm" type="text">
+                        </div>
+                    </div>
+                    <div class="criterias-sm">
+                        <div class="criterias-items">
+                            <label class="form-label-sm">Adults</label>
+                            <input class="form-input-sm" type="number">
+                        </div>
+                        <div class="criterias-items">
+                            <label class="form-label-sm">Children</label>
+                            <input class="form-input-sm" type="number">
+                        </div>
+                        <div class="criterias-items">
+                            <label class="form-label-sm">Rooms</label>
+                            <input class="form-input-sm" type="number">
+                        </div>
+                    </div>
+                    <div class="search-button-sm">Search</div>
+                </form>
+                <div class="top__apps">
+                    <a href="https://play.google.com" target="_blank">
+                        <img src="./img/top/google-play.png" alt="Google Play">
+                    </a>
+                    <a href="https://www.apple.com/app-store" target="_blank">
+                        <img src="./img/top/app-store.png" alt="App Store">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="advantages">
+            <div class="_bounding-container">
+                <h2 class="advantages__title">What do we offer</h2>
+                <div class="advantages__body">
+                    <div class="advantages__column col-3">
+                        <svg class="advantages__icon">
+                            <use href="./img/sprite.svg#headphones-icon"></use>
+                        </svg>
+                        <p class="advantages__text">Support 24/7</p>
+                    </div>
+                    <div class="advantages__column col-3">
+                        <svg class="advantages__icon">
+                            <use href="./img/sprite.svg#message-icon"></use>
+                        </svg>
+                        <p class="advantages__text">Communicate directly</p>
+                    </div>
+                    <div class="advantages__column col-3">
+                        <svg class="advantages__icon">
+                            <use href="./img/sprite.svg#library-icon"></use>
+                        </svg>
+                        <p class="advantages__text">Book online</p>
+                    </div>
+                    <div class="advantages__column col-3">
+                        <svg class="advantages__icon">
+                            <use href="./img/sprite.svg#thumb-up-icon"></use>
+                        </svg>
+                        <p class="advantages__text">Real guest reviews</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="homes -light-blue-bc">
+            <div class="_bounding-container">
+                <h2 class="homes__title">Homes guests loves</h2>
+                <div class="homes__body" id="homes-body"></div>
+            </div>
+        </section>
+        <section class="destinations">
+            <div class="_bounding-container">
+                <h2 class="destinations__title">The best destinations</h2>
+                <div class="destinations__buttons">
+                    <button class="destinations__button">Regions</button>
+                    <button class="destinations__button">Cities</button>
+                    <button class="destinations__button">Places<span class="remove-sm"> of interest</span></button>
+                </div>
+                <div class="destinations__body">
+                    <div class="destinations__column col-3">
+                        <div class="_image-container">
+                            <img src="img/destinations/maldives.png" alt="Maldives picture">
+                            <div class="-blackout">
+                                <button class="reservation-button -blue-text">Book now</button>
+                            </div>
+                        </div>
+                        <p class="destinations__text -blue-text">Maldives</p>
+                    </div>
+                    <div class="destinations__column col-3">
+                        <div class="_image-container">
+                            <img src="img/destinations/spain.png" alt="Spain picture">
+                            <div class="-blackout">
+                                <button class="reservation-button -blue-text">Book now</button>
+                            </div>
+                            <button class="vertical-slider slider remove-md">
+                                <svg class="arrow-icon">
+                                    <use href="./img/sprite.svg#arrow-icon"></use>
+                                </svg>
+                            </button>
+                        </div>
+                        <p class="destinations__text -blue-text">Spain</p>
+                    </div>
+                    <div class="destinations__column col-3 remove-xs">
+                        <div class="_image-container">
+                            <img src="img/destinations/norway.png" alt="Norway picture">
+                            <div class="-blackout">
+                                <button class="reservation-button -blue-text">Book now</button>
+                            </div>
+                        </div>
+                        <p class="destinations__text -blue-text">Norway</p>
+                    </div>
+                    <div class="destinations__column col-3 remove-xs">
+                        <div class="_image-container">
+                            <img src="img/destinations/island.png" alt="Island picture">
+                            <div class="-blackout">
+                                <button class="reservation-button -blue-text">Book now</button>
+                            </div>
+                        </div>
+                        <p class="destinations__text -blue-text">Island</p>
+                    </div>
+                </div>
+                <div class="_slider-container">
+                    <button class="destinations-slider slider remove-xs">
+                        <svg class="arrow-icon">
+                            <use href="./img/sprite.svg#arrow-icon"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <section class="sign-up -light-blue-bc">
+            <div class="sign-up__body">
+                <div class="sign-up__circle">
+                    <svg class="sign-up-icon">
+                        <use href="./img/sprite.svg#sign-up-icon"></use>
+                    </svg>
+                </div>
+                <div class="sign-up__logo-container sign-up__sm">
+                    <a href="#">
+                        <svg class="sign-up__triphouse-logo">
+                            <use href="./img/sprite.svg#triphouse-logo"></use>
+                        </svg>
+                    </a>
+                </div>
+                <div class="sign-up__items sign-up__sm">
+                    <p class="sign-up__text">Sign up<span class="sing-up__invisible remove-md"> in the app</span> and get 20% off your first booking</p>
+                    <button class="sign-up__button -blue-text">Sign up</button>
+                </div>
+                <a class="sign-up__install" href="#">Install</a>
+                <svg class="close-button">
+                    <use href="./img/sprite.svg#close-icon"></use>
+                </svg>
+            </div>
+        </section>
+        <section class="reviews">
+            <div class="_bounding-container">
+                <h2>Guests reviews</h2>
+                <div class="reviews__body">
+                    <div class="reviews__column col-4">
+                        <div class="_image-container">
+                            <img src="img/reviews/bali.png" alt="Ubud Bali Resort&SPA">
+                            <p class="cost">From 250 USD</p>
+                        </div>
+                        <div class="column__items">
+                            <div class="hotel-info">
+                                <div class="hotel-location">
+                                    <p class="-bold-text -blue-text">Ubud Bali Resort&SPA</p>
+                                    <p class="-blue-text">Bali, Indonesia</p>
+                                </div>
+                                <div class="evaluation">
+                                    <button class="review-rating -bold-text">9,4</button>
+                                    <p class="review-count -gray-text">1324 reviews</p>
+                                </div>
+                            </div>
+                            <div class="user">
+                                <svg class="user-icon">
+                                    <use href="./img/sprite.svg#account-icon"></use>
+                                </svg>
+                                <div class="user-info">
+                                    <p class="user-name -black-light-text">Hanna Ivanova</p>
+                                    <div class="user-location">
+                                        <svg class="flag">
+                                            <use href="./img/sprite.svg#ua-flag"></use>
+                                        </svg>
+                                        <p class="-gray-text">Ukraine</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="user-comment -black-light-text">
+                                Great location, really pleasant and clean rooms, but the thing that makes this such a good place to stay are the staff.
+                                All of the people are incredibly helpful and generous with their time and advice.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="reviews__column col-4 remove-xs">
+                        <div class="_image-container">
+                            <img src="img/reviews/rotterdam.png" alt="King Kong Hostel">
+                            <p class="cost">From 40 USD</p>
+                        </div>
+                        <div class="column__items">
+                            <div class="hotel-info">
+                                <div class="hotel-location">
+                                    <p class="-bold-text -blue-text">King Kong Hostel</p>
+                                    <p class="-blue-text">Rotterdam, Netherlands</p>
+                                </div>
+                                <div class="evaluation">
+                                    <button class="review-rating -bold-text">8,9</button>
+                                    <p class="review-count -gray-text">2016 reviews</p>
+                                </div>
+                            </div>
+                            <div class="user">
+                                <svg class="user-icon">
+                                    <use href="./img/sprite.svg#account-icon"></use>
+                                </svg>
+                                <div class="user-info">
+                                    <p class="user-name -black-light-text">Adam Smith</p>
+                                    <div class="user-location">
+                                        <svg class="flag">
+                                            <use href="./img/sprite.svg#usa-flag"></use>
+                                        </svg>
+                                        <p class="-gray-text">USA</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="user-comment -black-light-text">
+                                I've been in this hostel for a month and here is the best hostel of all <br>
+                                Excellent management of excellent and ethical staff and bedrooms Bathrooms are always clean and excellent
+                                <br>
+                                Most importantly, those who work here are kind and good-natured.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="reviews__column col-4 remove-sm">
+                        <div class="_image-container">
+                            <img src="img/reviews/ourika.png" alt="Rokoko Hotel">
+                            <p class="cost">From 100 USD</p>
+                            <button class="review-slider slider">
+                                <svg class="arrow-icon">
+                                    <use href="./img/sprite.svg#arrow-icon"></use>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="column__items">
+                            <div class="hotel-info">
+                                <div class="hotel-location">
+                                    <p class="-bold-text -blue-text">Rokoko Hotel</p>
+                                    <p class="-blue-text">Ourika, Marocco</p>
+                                </div>
+                                <div class="evaluation">
+                                    <button class="review-rating -bold-text">9,1</button>
+                                    <p class="review-count -gray-text">815 reviews</p>
+                                </div>
+                            </div>
+                            <div class="user">
+                                <svg class="user-icon">
+                                    <use href="./img/sprite.svg#account-icon"></use>
+                                </svg>
+                                <div class="user-info">
+                                    <p class="user-name -black-light-text">Anika Messer</p>
+                                    <div class="user-location">
+                                        <svg class="flag">
+                                            <use href="./img/sprite.svg#de-flag"></use>
+                                        </svg>
+                                        <p class="-gray-text">Germany</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="user-comment -black-light-text">
+                                Efficient, friendly, professional, and appropriately attentive.
+                                Great hotel in a great location. Easy access to all the surrounding historical sites.
+                                Staff is fantastic. Will definitely stay at this location during my next stay in Marocco.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="review__nav remove-md">
+                    <div class="review__nav_body">
+                        <div class="review__nav_ellipse -light-black-bc"></div>
+                        <div class="review__nav_ellipse"></div>
+                        <div class="review__nav_ellipse remove-sm visible"></div>
+                        <div class="review__nav_ellipse remove-sm visible"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="_bounding-container">
+            <a href="#">
+                <svg class="footer__triphouse-logo">
+                    <use href="./img/sprite.svg#triphouse-logo"></use>
+                </svg>
+            </a>
+            <div class="footer__body">
+                <ul class="footer__column col-4">
+                    <li><a href="#" class="-bold-text">About</a></li>
+                    <li><a href="#">How Triphouse works</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms</a></li>
+                </ul>
+                <ul class="footer__column col-4">
+                    <li><a href="#" class="-bold-text">Property types</a></li>
+                    <li><a href="#">Guest houses</a></li>
+                    <li><a href="#">Hotels</a></li>
+                    <li><a href="#">Apartments</a></li>
+                    <li><a href="#">Villas</a></li>
+                    <li><a href="#">Holiday homes</a></li>
+                    <li><a href="#">Hostels</a></li>
+                </ul>
+                <ul class="footer__column col-4">
+                    <li><a href="#" class="-bold-text">Support</a></li>
+                    <li><a href="#">Contact Customer Service</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <p class="copyright">&copy; 2020 Triphouse, Inc. All rights reserved</p>
+        </div>
+    </footer>
     <script src="main.js"></script>
 </body>
 </html>
