@@ -58,4 +58,3 @@ homesBody.innerHTML = data.map(i =>
     <p class="homes__text -blue-text">${i.name}</p>
     <p class="homes__text -gray-text">${i.city}, ${i.country}</p>
 </div>`).join('');
-
