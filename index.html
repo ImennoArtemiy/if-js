@@ -50,8 +50,37 @@
                     <div class="border_container">
                         <div class="button-container">
                             <div class="calendar" tabindex="0">Check-in — Check-out</div>
-                            <div class="criterias" tabindex="0">2 Adults — 0 Children — 1 Room</div>
+                            <div id="filterBtn-js" class="criterias" tabindex="0">2 Adults — 0 Children — 1 Room</div>
                             <button type="submit" class="search-button">Search</button>
+                        </div>
+                    </div>
+                    <div id="filter-js" class="filter__body" tabindex="0">
+                        <div class="filter-main-menu">
+                            <div class="filter-names">
+                                <p>Adults</p>
+                                <p>Children</p>
+                                <p>Rooms</p>
+                            </div>
+                            <div class="filter-items">
+                                <div class="filter-item">
+                                    <button type="button" class="minus-filter-btn">-</button>
+                                    <p id="adultCount">2</p>
+                                    <button type="button" class="plus-filter-btn">+</button>
+                                </div>
+                                <div class="filter-item">
+                                    <button type="button" class="minus-filter-btn">-</button>
+                                    <p id="childrenCount">0</p>
+                                    <button type="button" class="plus-filter-btn">+</button>
+                                </div>
+                                <div class="filter-item">
+                                    <button type="button" class="minus-filter-btn">-</button>
+                                    <p id="roomCount">1</p>
+                                    <button type="button" class="plus-filter-btn">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-childAgeBlock">
+                            <p>What is the age of the child you’re travelling with?</p>
                         </div>
                     </div>
                 </form>

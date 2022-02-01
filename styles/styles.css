@@ -106,6 +106,7 @@ h2::after {
     display: none;
 }
 
+
 /*------ modifiers --------*/
 
 .-bold-text {
@@ -352,6 +353,69 @@ h2::after {
 .top__apps a:not(:last-child) {
     margin-right: 16px;
 }
+
+.filter__body {
+    position: absolute;
+    top: 73px;
+    right: 190px;
+    display: none;
+    width: 259px;
+    background-color: #FFFFFF;
+    box-shadow: #3077C6 1px 1px 10px -5px;
+    border-radius: 8px;
+    padding: 0 22px 0 22px;
+}
+.filter-main-menu {
+    display: flex;
+    justify-content: space-between;
+}
+.filter-names {
+    font-size: 16px;
+    line-height: 19px;
+    padding: 28px 0 32px 0;
+}
+.filter-names p:not(:last-child) {
+    margin-bottom: 23px;
+}
+.filter-items {
+    padding-top: 22px;
+}
+.filter-item {
+    display: flex;
+    width: 108px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    line-height: 19px;
+}
+.filter-item:not(:last-child) {
+    padding-bottom: 12px;
+}
+.filter-item button {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #3077C6;
+}
+.filter-childAgeBlock {
+    display: none;
+    font-size: 12px;
+    margin-bottom: 22px;
+}
+.filter-childAgeBlock p {
+    margin-bottom: 12px;
+}
+.filter-indicateAge {
+    width: 40%;
+    font-size: 12px;
+    border: 1px solid #3077C6;
+    padding: 2px;
+    margin-bottom: 10px;
+}
+.filter-indicateAge:nth-child(even) {
+    margin-right: 40px;
+}
+
+
 
 .advantages__body {
     display: flex;
@@ -729,6 +793,7 @@ h2::after {
         width: 35%;
     }
     .criterias {
+        position: relative;
         width: 45%;
         text-align: center;
     }
