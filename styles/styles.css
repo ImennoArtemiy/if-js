@@ -106,7 +106,6 @@ h2::after {
     display: none;
 }
 
-
 /*------ modifiers --------*/
 
 .-bold-text {
@@ -396,6 +395,10 @@ h2::after {
     height: 30px;
     border: 1px solid #3077C6;
 }
+.child-filter button:first-child {
+    border: 1px solid #CECECE;
+    color: #CECECE;
+}
 .filter-childAgeBlock {
     display: none;
     font-size: 12px;
@@ -414,8 +417,6 @@ h2::after {
 .filter-indicateAge:nth-child(even) {
     margin-right: 40px;
 }
-
-
 
 .advantages__body {
     display: flex;
@@ -1297,3 +1298,8 @@ h2::after {
         width: auto;
     }
 }
+
+.-visibleBlock {
+    display: block;
+}
+
