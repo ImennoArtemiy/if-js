@@ -23,12 +23,12 @@ minusButtons[0].addEventListener('click', () => {
     adultCount.textContent = `${adultCount.textContent - 1}`;
   }
   if (adultCount.textContent === minAdultValue) {
-    minusButtons[0].style.border = '1px solid #CECECE';
-    minusButtons[0].style.color = '#CECECE';
+    minusButtons[0].classList.add('disableBtn');
   }
   if(adultCount.textContent !== maxAdultValue) {
-    plusButtons[0].style.border = '1px solid #3077C6';
-    plusButtons[0].style.color = '#3077C6';
+
+    plusButtons[0].classList.remove('disableBtn');
+    plusButtons[0].classList.add('enableBtn');
   }
   filterBtn.textContent = `${adultCount.textContent} Adults — ${childrenCount.textContent} Children — ${roomCount.textContent} Room`;
 })
@@ -38,12 +38,11 @@ plusButtons[0].addEventListener('click', () => {
     adultCount.textContent = `${Number(adultCount.textContent) + 1}`;
   }
   if (adultCount.textContent !== minAdultValue) {
-    minusButtons[0].style.border = '1px solid #3077C6';
-    minusButtons[0].style.color = '#3077C6';
+    minusButtons[0].classList.remove('disableBtn');
+    minusButtons[0].classList.add('enableBtn');
   }
   if (adultCount.textContent === maxAdultValue) {
-    plusButtons[0].style.border = '1px solid #CECECE';
-    plusButtons[0].style.color = `#CECECE`;
+    plusButtons[0].classList.add('disableBtn');
   }
   filterBtn.textContent = `${adultCount.textContent} Adults — ${childrenCount.textContent} Children — ${roomCount.textContent} Room`;
 })
@@ -60,15 +59,14 @@ minusButtons[1].addEventListener('click', () => {
     childAgeBlock[0].removeChild(deleteChildSelect);
   }
   if (childrenCount.textContent === minChildrenValue) {
-    minusButtons[1].style.border = '1px solid #CECECE';
-    minusButtons[1].style.color = '#CECECE';
+    minusButtons[1].classList.add('disableBtn');
   }
   if(childrenCount.textContent !== maxChildrenValue) {
-    plusButtons[1].style.border = '1px solid #3077C6';
-    plusButtons[1].style.color = '#3077C6';
+    plusButtons[1].classList.remove('disableBtn');
+    plusButtons[1].classList.add('enableBtn');
   }
   if (Number(childrenCount.textContent) === Number(minChildrenValue)) {
-    childAgeBlock[0].style.display = 'none';
+    childAgeBlock[0].classList.add('-invisibleBlock');
   }
   filterBtn.textContent = `${adultCount.textContent} Adults — ${childrenCount.textContent} Children — ${roomCount.textContent} Room`;
 })
@@ -86,15 +84,16 @@ plusButtons[1].addEventListener('click', () => {
     }
 
   if (childrenCount.textContent !== minChildrenValue) {
-    minusButtons[1].style.border = '1px solid #3077C6';
-    minusButtons[1].style.color = '#3077C6';
+    minusButtons[1].classList.remove('disableBtn');
+    minusButtons[1].classList.add('enableBtn');
   }
   if (childrenCount.textContent === maxChildrenValue) {
-    plusButtons[1].style.border = '1px solid #CECECE';
-    plusButtons[1].style.color = `#CECECE`;
+    plusButtons[1].classList.remove('enableBtn');
+    plusButtons[1].classList.add('disableBtn');
   }
   if (Number(childrenCount.textContent) !== Number(minChildrenValue)) {
-    childAgeBlock[0].style.display = 'block';
+    childAgeBlock[0].classList.remove('-invisibleBlock');
+    childAgeBlock[0].classList.add('-visibleBlock');
   }
 
   filterBtn.textContent = `${adultCount.textContent} Adults — ${childrenCount.textContent} Children — ${roomCount.textContent} Room`;
@@ -110,12 +109,11 @@ minusButtons[2].addEventListener('click', () => {
     roomCount.textContent = `${roomCount.textContent - 1}`;
   }
   if (roomCount.textContent === minRoomsValue) {
-    minusButtons[2].style.border = '1px solid #CECECE';
-    minusButtons[2].style.color = '#CECECE';
+    minusButtons[2].classList.add('disableBtn');
   }
   if(roomCount.textContent !== maxRoomsValue) {
-    plusButtons[2].style.border = '1px solid #3077C6';
-    plusButtons[2].style.color = '#3077C6';
+    plusButtons[2].classList.remove('disableBtn');
+    plusButtons[2].classList.add('enableBtn');
   }
   filterBtn.textContent = `${adultCount.textContent} Adults — ${childrenCount.textContent} Children — ${roomCount.textContent} Room`;
 })
@@ -125,12 +123,11 @@ plusButtons[2].addEventListener('click', () => {
     roomCount.textContent = `${Number(roomCount.textContent) + 1}`;
   }
   if (roomCount.textContent !== minRoomsValue) {
-    minusButtons[2].style.border = '1px solid #3077C6';
-    minusButtons[2].style.color = '#3077C6';
+    minusButtons[2].classList.remove('disableBtn');
+    minusButtons[2].classList.add('enableBtn');
   }
   if (roomCount.textContent === maxRoomsValue) {
-    plusButtons[2].style.border = '1px solid #CECECE';
-    plusButtons[2].style.color = `#CECECE`;
+    plusButtons[2].classList.add('disableBtn');
   }
   filterBtn.textContent = `${adultCount.textContent} Adults — ${childrenCount.textContent} Children — ${roomCount.textContent} Room`;
 })

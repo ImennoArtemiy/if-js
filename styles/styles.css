@@ -393,9 +393,12 @@ h2::after {
 .filter-item button {
     width: 30px;
     height: 30px;
-    border: 1px solid #3077C6;
 }
-.child-filter button:first-child {
+.enableBtn {
+    border: 1px solid #3077C6;
+    color: #3077C6;
+}
+.disableBtn {
     border: 1px solid #CECECE;
     color: #CECECE;
 }
@@ -1301,5 +1304,8 @@ h2::after {
 
 .-visibleBlock {
     display: block;
+}
+.-invisibleBlock {
+    display: none;
 }
 
