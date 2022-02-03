@@ -456,7 +456,8 @@ h2::after {
 }
 .homes__column img {
     display: block;
-    width: 100%;
+    width: 296px;
+    height: 296px;
 }
 .homes__text {
     margin-top: 24px;
