@@ -450,6 +450,7 @@ h2::after {
 .homes__column {
     width: calc(25% - 16px);
     margin-right: 16px;
+    margin-bottom: 16px;
 }
 .homes__column:nth-child(4) {
     margin: 0;
