@@ -44,14 +44,14 @@
                 <h1 class="top__title">Discover stays <br> to live, work or just relax</h1>
                 <form action="" class="top__form remove-sm">
                     <div class="city-field">
-                        <input id="city-input" class="city-input" type="text" required>
-                        <label class="city-label" for="city-input">Your destination or hotel name</label>
+                        <input id="textToFind" class="city-input" type="text" required>
+                        <label class="city-label" for="textToFind">Your destination or hotel name</label>
                     </div>
                     <div class="border_container">
                         <div class="button-container">
                             <div class="calendar" tabindex="0">Check-in — Check-out</div>
                             <div id="filterBtn-js" class="criterias" tabindex="0">2 Adults — 0 Children — 1 Room</div>
-                            <button type="submit" class="search-button">Search</button>
+                            <button id="searchFormBtn" type="button" class="search-button">Search</button>
                         </div>
                     </div>
                     <div id="filter-js" class="filter__body" tabindex="0">
@@ -129,6 +129,12 @@
         </div>
     </header>
     <main>
+        <section id="availableWrap" class="available homes -light-blue-bc -invisibleBlock">
+            <div class="_bounding-container">
+                <h2 class="available__title">Available hotels</h2>
+                <div class="homes__body" id="availableHotels-body"></div>
+            </div>
+        </section>
         <section class="advantages">
             <div class="_bounding-container">
                 <h2 class="advantages__title">What do we offer</h2>

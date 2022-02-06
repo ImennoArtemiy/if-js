@@ -15,7 +15,7 @@ const childAgeBlock = document.querySelectorAll('.filter-childAgeBlock');
 
 //Adults
 
-const minAdultValue = '0';
+const minAdultValue = '1';
 const maxAdultValue = '30';
 
 minusButtons[0].addEventListener('click', () => {
@@ -72,12 +72,13 @@ minusButtons[1].addEventListener('click', () => {
 })
 
 plusButtons[1].addEventListener('click', () => {
+
   if(childrenCount.textContent !== maxChildrenValue) {
     childrenCount.textContent = `${Number(childrenCount.textContent) + 1}`;
 
       const childrenSelectElement = document.createElement('select');
       for (let year = 0; year < 18; year++) {
-        childrenSelectElement.innerHTML += `<option>${year} years old</option>`;
+        childrenSelectElement.innerHTML += `<option class="childAgeOption">${year} years old</option>`;
       }
       childrenSelectElement.classList.add('filter-indicateAge');
       childAgeBlock[0].appendChild(childrenSelectElement);
@@ -194,15 +195,16 @@ plusButtons[2].addEventListener('click', () => {
 //     <p class="homes__text -gray-text">${i.city}, ${i.country}</p>
 // </div>`).join('');
 
-const urlHomesContent = 'https://fe-student-api.herokuapp.com/api/hotels/popular';
 
-fetch(urlHomesContent)
+//lesson-12
+const urlHomesHotelsPopular = 'https://fe-student-api.herokuapp.com/api/hotels/popular';
+
+fetch(urlHomesHotelsPopular)
   .then(data => data.text())
   .then(data => {
     return JSON.parse(data);
   })
   .then(data => {
-    console.log(data);
     const homesBody = document.getElementById('homes-body');
     homesBody.innerHTML = data.map(i =>
     `<div class="homes__column">
@@ -211,3 +213,39 @@ fetch(urlHomesContent)
       <p class="homes__text -gray-text">${i.city}, ${i.country}</p>
   </div>`).join('');
   });
+
+
+//lesson-12.2
+
+const searchFormBtn = document.getElementById('searchFormBtn');
+const availableHotelsWrap = document.getElementById('availableWrap');
+
+const submitForm = () => {
+  const childrenTagSelect = document.querySelectorAll('.filter-indicateAge');
+  const textToFind = document.getElementById('textToFind').value;
+  const childrenYearsArr = [];
+
+  for (let i = 0; i < childrenTagSelect.length; i++) {
+    childrenYearsArr.push(childrenTagSelect[i].options.selectedIndex);
+  }
+
+  fetch(`https://fe-student-api.herokuapp.com/api/hotels?search=${textToFind}&adults=${adultCount.textContent}&children=${childrenYearsArr.toString()}&rooms=${roomCount.textContent}`)
+    .then(data => data.text())
+    .then(data => {
+      return JSON.parse(data);
+    })
+    .then(data => {
+      const availableHotelsBody = document.getElementById('availableHotels-body');
+      availableHotelsBody.innerHTML = data.map(i =>
+        `<div class="homes__column">
+      <img src="${i.imageUrl}" alt="House in Russia">
+      <p class="homes__text -blue-text">${i.name}</p>
+      <p class="homes__text -gray-text">${i.city}, ${i.country}</p>
+  </div>`).join('');
+    })
+    .then(data => {
+      availableHotelsWrap.classList.remove('-invisibleBlock');
+    })
+}
+
+searchFormBtn.addEventListener('click', submitForm);
