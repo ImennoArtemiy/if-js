@@ -102,7 +102,7 @@ plusButtons[1].addEventListener('click', () => {
 
 //Rooms
 
-const minRoomsValue = '0';
+const minRoomsValue = '1';
 const maxRoomsValue = '30';
 
 minusButtons[2].addEventListener('click', () => {
