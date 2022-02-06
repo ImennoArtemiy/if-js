@@ -15,7 +15,7 @@ const childAgeBlock = document.querySelectorAll('.filter-childAgeBlock');
 
 //Adults
 
-const minAdultValue = '0';
+const minAdultValue = '1';
 const maxAdultValue = '30';
 
 minusButtons[0].addEventListener('click', () => {
@@ -216,6 +216,7 @@ fetch(urlHomesHotelsPopular)
 
 
 //lesson-12.2
+
 const searchFormBtn = document.getElementById('searchFormBtn');
 const availableHotelsWrap = document.getElementById('availableWrap');
 
@@ -223,19 +224,12 @@ const submitForm = () => {
   const childrenTagSelect = document.querySelectorAll('.filter-indicateAge');
   const textToFind = document.getElementById('textToFind').value;
   const childrenYearsArr = [];
-  let postRequestSearchHotelsUrl;
 
   for (let i = 0; i < childrenTagSelect.length; i++) {
     childrenYearsArr.push(childrenTagSelect[i].options.selectedIndex);
   }
 
-  if(textToFind === '') {
-    postRequestSearchHotelsUrl = `https://fe-student-api.herokuapp.com/api/hotels?search=us&adults=${adultCount.textContent}&children=${childrenYearsArr.toString()}&rooms=${roomCount.textContent}`;
-  } else {
-    postRequestSearchHotelsUrl = `https://fe-student-api.herokuapp.com/api/hotels?search=${textToFind}&adults=${adultCount.textContent}&children=${childrenYearsArr.toString()}&rooms=${roomCount.textContent}`
-  }
-
-  fetch(postRequestSearchHotelsUrl)
+  fetch(`https://fe-student-api.herokuapp.com/api/hotels?search=${textToFind}&adults=${adultCount.textContent}&children=${childrenYearsArr.toString()}&rooms=${roomCount.textContent}`)
     .then(data => data.text())
     .then(data => {
       return JSON.parse(data);
