@@ -102,7 +102,7 @@ plusButtons[1].addEventListener('click', () => {
 
 //Rooms
 
-const minRoomsValue = '0';
+const minRoomsValue = '1';
 const maxRoomsValue = '30';
 
 minusButtons[2].addEventListener('click', () => {
@@ -197,23 +197,22 @@ plusButtons[2].addEventListener('click', () => {
 
 
 //lesson-12
-const urlHomesHotelsPopular = 'https://fe-student-api.herokuapp.com/api/hotels/popular';
-
-fetch(urlHomesHotelsPopular)
-  .then(data => data.text())
-  .then(data => {
-    return JSON.parse(data);
-  })
-  .then(data => {
-    const homesBody = document.getElementById('homes-body');
-    homesBody.innerHTML = data.map(i =>
-    `<div class="homes__column">
-      <img src="${i.imageUrl}" alt="House in Russia">
-      <p class="homes__text -blue-text">${i.name}</p>
-      <p class="homes__text -gray-text">${i.city}, ${i.country}</p>
-  </div>`).join('');
-  });
-
+// const urlHomesHotelsPopular = 'https://fe-student-api.herokuapp.com/api/hotels/popular';
+//
+// fetch(urlHomesHotelsPopular)
+//   .then(data => data.text())
+//   .then(data => {
+//     return JSON.parse(data);
+//   })
+//   .then(data => {
+//     const homesBody = document.getElementById('homes-body');
+//     homesBody.innerHTML = data.map(i =>
+//     `<div class="homes__column">
+//       <img src="${i.imageUrl}" alt="House in Russia">
+//       <p class="homes__text -blue-text">${i.name}</p>
+//       <p class="homes__text -gray-text">${i.city}, ${i.country}</p>
+//   </div>`).join('');
+//   });
 
 //lesson-12.2
 
@@ -249,3 +248,38 @@ const submitForm = () => {
 }
 
 searchFormBtn.addEventListener('click', submitForm);
+
+//lesson-13
+
+const urlHomesHotelsPopular = 'https://fe-student-api.herokuapp.com/api/hotels/popular';
+
+const drawHomesBodyBlock = (data) => {
+  const homesBody = document.getElementById('homes-body');
+  homesBody.innerHTML = data.map(i =>
+    `<div class="homes__column">
+      <img src="${i.imageUrl}" alt="House in Russia">
+      <p class="homes__text -blue-text">${i.name}</p>
+      <p class="homes__text -gray-text">${i.city}, ${i.country}</p>
+  </div>`).join('');
+}
+
+const serverRequest = () => {
+  fetch(urlHomesHotelsPopular)
+    .then(data => data.text())
+    .then(data => {
+      sessionStorage.setItem('hotels', data);
+      return JSON.parse(data);
+    })
+    .then(data => {
+      drawHomesBodyBlock(data);
+    })
+}
+
+const sessionDataHotels = sessionStorage.getItem('hotels');
+
+if (sessionDataHotels) {
+  data = JSON.parse(sessionDataHotels);
+  drawHomesBodyBlock(data);
+} else {
+  serverRequest();
+}
