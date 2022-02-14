@@ -135,7 +135,7 @@ plusButtons[2].addEventListener('click', () => {
 
 
 
-// const data = [
+// const dataMy = [
 //   {
 //     name: 'Hotel Leopold',
 //     city: 'Saint Petersburg',
@@ -185,6 +185,7 @@ plusButtons[2].addEventListener('click', () => {
 //     imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/the-andaman-resort_d2xksj.jpg',
 //   },
 // ];
+// console.log(dataMy)
 //
 // const homesBody = document.getElementById('homes-body');
 //
@@ -267,12 +268,14 @@ const serverRequest = () => {
   fetch(urlHomesHotelsPopular)
     .then(data => data.text())
     .then(data => {
-      sessionStorage.setItem('hotels', data);
       return JSON.parse(data);
     })
     .then(data => {
+      bubbleSort(data)
       drawHomesBodyBlock(data);
+      return JSON.stringify(data)
     })
+    .then(data => sessionStorage.setItem('hotels', data))
 }
 
 const sessionDataHotels = sessionStorage.getItem('hotels');
@@ -283,3 +286,60 @@ if (sessionDataHotels) {
 } else {
   serverRequest();
 }
+
+// lesson-15
+//task 1
+
+const bubbleSort = (array) => {
+  for (let j = 0; j < array.length; j++) {
+    for (let i = 0; i < array.length - 1 - j; i++) {
+      if (array[i].name > array[i + 1].name) {
+        const buff = array[i].name
+        array[i].name = array[i + 1].name
+        array[i + 1].name = buff
+      }
+    }
+  }
+
+  return array
+}
+
+//task 2
+
+const stringExOjb1 = '{user: {name: "John", age: 21}}'
+const stringExOjb2 = '{user: {name: }{"John", age: 21{}}'
+
+
+let checkBrackets = function(str) {
+  str.toString()
+  let chars = str.split(''),
+    stack = [],
+    open = '{',
+    close = '}',
+    closeIndex,
+    openIndex;
+
+  for (let i = 0, len = chars.length; i < len; i++) {
+    openIndex = open.indexOf(chars[i]);
+    if (openIndex !== -1) {
+      stack.push(openIndex);
+    }
+
+    closeIndex = close.indexOf(chars[i]);
+    if (closeIndex !== -1) {
+      openIndex = stack.pop();
+      if (closeIndex !== openIndex) {
+        return false;
+      }
+    }
+  }
+
+  if (stack.length !== 0) {
+    return false;
+  }
+
+  return true;
+}
+
+console.log(checkBrackets(stringExOjb1))
+console.log(checkBrackets(stringExOjb2))
