@@ -12,6 +12,7 @@ const roomCount = document.getElementById('roomCount');
 const minusButtons = document.querySelectorAll('.minus-filter-btn');
 const plusButtons = document.querySelectorAll('.plus-filter-btn');
 const childAgeBlock = document.querySelectorAll('.filter-childAgeBlock');
+const selectsContainer = document.getElementById('selectsContainer');
 
 //Adults
 
@@ -56,7 +57,7 @@ minusButtons[1].addEventListener('click', () => {
   if (childrenCount.textContent !== minChildrenValue) {
     childrenCount.textContent = `${childrenCount.textContent - 1}`;
     const deleteChildSelect = document.querySelector('.filter-indicateAge');
-    childAgeBlock[0].removeChild(deleteChildSelect);
+    selectsContainer.removeChild(deleteChildSelect);
   }
   if (childrenCount.textContent === minChildrenValue) {
     minusButtons[1].classList.add('disableBtn');
@@ -81,7 +82,7 @@ plusButtons[1].addEventListener('click', () => {
         childrenSelectElement.innerHTML += `<option class="childAgeOption">${year} years old</option>`;
       }
       childrenSelectElement.classList.add('filter-indicateAge');
-      childAgeBlock[0].appendChild(childrenSelectElement);
+      selectsContainer.appendChild(childrenSelectElement);
     }
 
   if (childrenCount.textContent !== minChildrenValue) {
