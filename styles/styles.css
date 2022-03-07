@@ -306,7 +306,17 @@ h2::after {
     top: 0;
     right: 0;
 }
-.calendar, .criterias {
+
+.criterias {
+    padding: 21px 24px;
+}
+.filter-container {
+    position: relative;
+    border: 3px solid rgba(245, 189, 65, 0);
+    border-radius: 8px;
+}
+
+.calendar {
     color: #383838;
     padding: 21px 24px;
     border: 3px solid rgba(245, 189, 65, 0);
@@ -314,10 +324,10 @@ h2::after {
     cursor: pointer;
     transition: .2s ease;
 }
-.calendar:hover, .criterias:hover {
+.calendar:hover, .filter-container:hover {
     border: 3px solid #dedee1;
 }
-.calendar:focus, .criterias:focus {
+.calendar:focus, .filter-container:focus {
     border: 3px solid rgba(245, 189, 65, 100);
 }
 .search-button {
@@ -356,13 +366,14 @@ h2::after {
 .filter__body {
     position: absolute;
     top: 73px;
-    right: 190px;
+    right: 0;
     display: none;
     width: 259px;
     background-color: #FFFFFF;
     box-shadow: #3077C6 1px 1px 10px -5px;
     border-radius: 8px;
     padding: 0 22px 0 22px;
+    z-index: 9;
 }
 .filter-main-menu {
     display: flex;
@@ -407,6 +418,11 @@ h2::after {
     font-size: 12px;
     margin-bottom: 22px;
 }
+.selects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 .filter-childAgeBlock p {
     margin-bottom: 12px;
 }
@@ -416,9 +432,6 @@ h2::after {
     border: 1px solid #3077C6;
     padding: 2px;
     margin-bottom: 10px;
-}
-.filter-indicateAge:nth-child(even) {
-    margin-right: 40px;
 }
 
 .advantages__body {
@@ -798,14 +811,23 @@ h2::after {
     .calendar {
         width: 35%;
     }
-    .criterias {
-        position: relative;
+    .filter-container {
         width: 45%;
         text-align: center;
     }
     .search-button {
         width: 20%;
         padding: 15px 0;
+    }
+    .filter__body{
+        top: 75px;
+        right: 0;
+    }
+    .filter-names {
+        padding: 20px 0 32px 0;
+    }
+    .filter-childAgeBlock {
+        margin-bottom: 12px;
     }
 }
 
